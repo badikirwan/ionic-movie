@@ -1,13 +1,13 @@
 import {Injectable} from "@angular/core";
 import {Http, RequestOptions} from "@angular/http";
-import 'rxjs/Rx'
 import {Observable} from "rxjs";
 import { map } from 'rxjs/operators';
 import 'rxjs/add/operator/catch';
+import 'rxjs/Rx'
 
 
 @Injectable()
-export class ContactService {
+export class MovieService {
 
     headers : any;
     options : any;
