@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ContactService } from '../../services/contact.service';
+import { MovieService } from '../../services/movie.service';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { Contact } from '../../classes/contact.class';
@@ -22,8 +22,7 @@ export class NowplayingPage {
   contacts: Contact[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public contactService: ContactService, private loadingCtrl: LoadingController, 
-    private alertCtrl: AlertController) {
+    public movieService: MovieService, private loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -32,7 +31,7 @@ export class NowplayingPage {
     .loadingCtrl
     .create({content: "Please wait..."});
     loader.present();
-    this.contactService.nowPlayingMovie().subscribe(output => {
+    this.movieService.nowPlayingMovie().subscribe(output => {
       loader.dismiss();
       this.contacts = output.results;
       console.log(output.results);
