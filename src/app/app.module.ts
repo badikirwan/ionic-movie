@@ -7,7 +7,7 @@ import { CallNumber } from '@ionic-native/call-number';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ContactService } from '../services/contact.service';
+import { MovieService } from '../services/movie.service';
 import { HttpModule } from '@angular/http';
 import { DetailPage } from '../pages/detail/detail';
 import { SearchPage } from '../pages/search/search';
@@ -37,7 +37,7 @@ import { NowplayingPage } from '../pages/nowplaying/nowplaying';
   providers: [
     StatusBar,
     SplashScreen,
-    ContactService,
+    MovieService,
     CallNumber,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
