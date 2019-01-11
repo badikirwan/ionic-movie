@@ -7,7 +7,12 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>upcoming</ion-title>
+    <ion-title>Movie App</ion-title>
+    <ion-buttons right>
+      <button ion-button (click)="onGotoSearchContactPage()">
+        <ion-icon name="search" style="font-size: 25px;"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -18,7 +23,7 @@
     <ion-item-sliding *ngFor="let contact of contacts">
       <ion-item>
       <ion-thumbnail item-start>
-        <img src= "{ {contact.poster_path}}" >
+        <img src= "https://image.tmdb.org/t/p/w185/{{contact.poster_path}}" >
       </ion-thumbnail>
       <h2>{{contact.title}}</h2>
       <p>{{contact.overview}}</p>

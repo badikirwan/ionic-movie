@@ -1,8 +1,9 @@
 import {Injectable} from "@angular/core";
 import {Http, RequestOptions} from "@angular/http";
 import 'rxjs/Rx'
-import {Observable} from "rxjs/Observable";
-import {Subscriber} from "rxjs/Subscriber";
+import {Observable} from "rxjs";
+import { map } from 'rxjs/operators';
+import 'rxjs/add/operator/catch';
 
 
 @Injectable()
@@ -22,49 +23,55 @@ export class ContactService {
         return this
             .http
             .get(this.url + 'upcoming?api_key=' + this.key, this.options)
-            .map(res => res.json())
-            .catch(this.handleError)
+            .pipe(map(res => res.json()))
     }
 
-    findAll() {
+    nowPlayingMovie() {
         return this
             .http
-            .get(this.url + '/findall', this.options)
-            .map(res => res.json())
-            .catch(this.handleError)
+            .get(this.url + 'now_playing?api_key=' + this.key, this.options)
+            .pipe(map(res => res.json()))
     }
 
-    searchByName(searchItem) {
-        return this
-            .http
-            .post(this.url + '/search',searchItem, this.options)
-            .map(res => res.json())
-            .catch(this.handleError)
-    }
+    // findAll() {
+    //     return this
+    //         .http
+    //         .get(this.url + '/findall', this.options)
+    //         .map(res => res.json())
+    //         .catch(this.handleError)
+    // }
 
-    removeById(id) {
-        return this
-            .http
-            .get(this.url + '/remove/'+id, this.options)
-            .map(res => res.json())
-            .catch(this.handleError)
-    }
+    // searchByName(searchItem) {
+    //     return this
+    //         .http
+    //         .post(this.url + '/search',searchItem, this.options)
+    //         .map(res => res.json())
+    //         .catch(this.handleError)
+    // }
 
-    save(contact){
-        return this
-        .http
-        .post(this.url + '/save',contact, this.options)
-        .map(res => res.json())
-        .catch(this.handleError)
-    }
+    // removeById(id) {
+    //     return this
+    //         .http
+    //         .get(this.url + '/remove/'+id, this.options)
+    //         .map(res => res.json())
+    //         .catch(this.handleError)
+    // }
 
-    update(contact){
-        return this
-        .http
-        .post(this.url + '/update',contact, this.options)
-        .map(res => res.json())
-        .catch(this.handleError)
-    }
+    // save(contact){
+    //     return this
+    //     .http
+    //     .post(this.url + '/save',contact, this.options)
+    //     .map(res => res.json())
+    //     .catch(this.handleError)
+    // }
+
+    // update(contact){
+    //     return this
+    //     .http
+    //     .post(this.url + '/update',contact, this.options)
+    //     .map(res => res.json())
+    //     .catch(this.handleError)
+    // }
 
     handleError(error) {
         console.error(error);

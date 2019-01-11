@@ -5,7 +5,6 @@ import { LoadingController } from 'ionic-angular/components/loading/loading-cont
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { Contact } from '../../classes/contact.class';
 import { SearchPage } from '../search/search';
-import { AddPage } from '../add/add';
 import { DetailPage } from '../detail/detail';
 import { CallNumber } from '@ionic-native/call-number';
 

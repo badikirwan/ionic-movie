@@ -9,10 +9,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ContactService } from '../services/contact.service';
 import { HttpModule } from '@angular/http';
-import { AddPage } from '../pages/add/add';
 import { DetailPage } from '../pages/detail/detail';
 import { SearchPage } from '../pages/search/search';
-import { EditPage } from '../pages/edit/edit';
 import { TabsPage } from '../pages/tabs/tabs';
 import { UpcomingPage } from '../pages/upcoming/upcoming';
 import { NowplayingPage } from '../pages/nowplaying/nowplaying'; 
@@ -22,7 +20,6 @@ import { NowplayingPage } from '../pages/nowplaying/nowplaying';
     MyApp,
     NowplayingPage,
     UpcomingPage,
-    SearchPage,
     TabsPage
   ],
   imports: [
@@ -35,7 +32,6 @@ import { NowplayingPage } from '../pages/nowplaying/nowplaying';
     MyApp,
     NowplayingPage,
     UpcomingPage,
-    SearchPage,
     TabsPage
   ],
   providers: [

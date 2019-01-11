@@ -7,12 +7,37 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>nowplaying</ion-title>
+    <ion-title>Movie App</ion-title>
+    <ion-buttons right>
+        <button ion-button (click)="onGotoSearchContactPage()">
+          <ion-icon name="search" style="font-size: 25px;"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+    <ion-list>
+        <ion-item-sliding *ngFor="let contact of contacts">
+          <ion-item>
+          <ion-thumbnail item-start>
+            <img src= "https://image.tmdb.org/t/p/w185/{{contact.poster_path}}" >
+          </ion-thumbnail>
+          <h2>{{contact.title}}</h2>
+          <p>{{contact.overview}}</p>
+        </ion-item>
+        <ion-item-options side="right">
+            <button ion-button color="primary" (click)="onGotoDetailContactPage(contact)">
+              <ion-icon name="list-box"></ion-icon>
+              Detail
+            </button>
+            <button ion-button color="secondary" (click)="onCallNumber(contact.phone)"> 
+              <ion-icon name="call"></ion-icon>
+              Call
+            </button>
+        </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
 </ion-content>

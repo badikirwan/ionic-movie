@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { UpcomingPage } from '../upcoming/upcoming';
 import { NowplayingPage } from '../nowplaying/nowplaying';
-import { SearchPage } from '../search/search'; 
 import { from } from 'rxjs/observable/from';
 
 /**
@@ -21,7 +20,6 @@ export class TabsPage {
 
   upcomingRoot = UpcomingPage;
   nowplayingRoot = NowplayingPage;
-  searchRoot = SearchPage;
 
 
   constructor(public navCtrl: NavController) {}
