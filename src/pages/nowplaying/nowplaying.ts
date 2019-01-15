@@ -5,6 +5,7 @@ import { LoadingController } from 'ionic-angular/components/loading/loading-cont
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { Movie } from '../../classes/movie.class';
 import { SearchPage } from '../search/search';
+import { DetailPage } from '../detail/detail';
 
 /**
  * Generated class for the NowplayingPage page.
@@ -41,8 +42,12 @@ export class NowplayingPage {
     });
   }
 
-  onGotoSearchContactPage(){
+  onGotoSearchMoviePage(){
     this.navCtrl.push(SearchPage);
+  }
+
+  onGotoDetailMoviePage(movie) {
+    this.navCtrl.push(DetailPage, movie);
   }
 
   errorHandler(error){
