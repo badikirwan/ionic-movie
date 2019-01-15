@@ -14,7 +14,7 @@
 <ion-content padding>
   <ion-row>
     <ion-col text-center>
-      <img src="assets/imgs/contact.png" width="150px" height="150px">
+      <img src="https://image.tmdb.org/t/p/w185/{{contact.poster_path}}">
     </ion-col>
   </ion-row>
   <ion-row>
@@ -35,7 +35,3 @@
     {{contact?.email}}
   </ion-item>
 </ion-content>
-
-<ion-footer padding no-border> 
-  <button ion-button block color="primary" (click)="onEdit()">Edit Contact</button>
-</ion-footer>

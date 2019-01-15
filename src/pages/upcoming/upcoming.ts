@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MovieService } from '../../services/movie.service';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
-import { Contact } from '../../classes/contact.class';
+import { Movie } from '../../classes/movie.class';
+import { DetailPage } from '../detail/detail';
 
 /**
  * Generated class for the UpcomingPage page.
@@ -19,7 +20,7 @@ import { Contact } from '../../classes/contact.class';
 })
 export class UpcomingPage {
 
-  contacts: Contact[] = [];
+  movies: Movie[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public movieService: MovieService, private loadingCtrl: LoadingController, 
@@ -28,18 +29,27 @@ export class UpcomingPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UpcomingPage');
-    let loader = this
-    .loadingCtrl
-    .create({content: "Please wait..."});
+    let loader = this.loadingCtrl.create({content: "Please wait..."});
     loader.present();
     this.movieService.upComingMovie().subscribe(output => {
       loader.dismiss();
-      this.contacts = output.results;
+      this.movies = output.results;
       console.log(output.results);
-    }, error =>{
+    }, error => {
       loader.dismiss();
-      //this.errorHandler(error);
+      this.errorHandler(error);
     });
+  }
+
+  onGotoDetailContactPage(contact) {
+    this.navCtrl.push(DetailPage, contact);
+  }
+
+  errorHandler(error) {
+    const alert = this
+    .alertCtrl
+    .create({title: 'Error', message: error, buttons: ['Ok']});
+    alert.present();
   }
 
 }

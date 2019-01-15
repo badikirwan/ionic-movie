@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { UpcomingPage } from '../upcoming/upcoming';
 import { NowplayingPage } from '../nowplaying/nowplaying';
-import { from } from 'rxjs/observable/from';
 
 /**
  * Generated class for the TabsPage tabs.

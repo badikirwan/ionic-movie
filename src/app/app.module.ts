@@ -6,7 +6,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { CallNumber } from '@ionic-native/call-number';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { MovieService } from '../services/movie.service';
 import { HttpModule } from '@angular/http';
 import { DetailPage } from '../pages/detail/detail';
@@ -20,6 +19,8 @@ import { NowplayingPage } from '../pages/nowplaying/nowplaying';
     MyApp,
     NowplayingPage,
     UpcomingPage,
+    DetailPage,
+    SearchPage,
     TabsPage
   ],
   imports: [
@@ -32,6 +33,8 @@ import { NowplayingPage } from '../pages/nowplaying/nowplaying';
     MyApp,
     NowplayingPage,
     UpcomingPage,
+    DetailPage,
+    SearchPage,
     TabsPage
   ],
   providers: [
