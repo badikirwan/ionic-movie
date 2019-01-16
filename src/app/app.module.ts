@@ -3,8 +3,6 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { CallNumber } from '@ionic-native/call-number';
-
 import { MyApp } from './app.component';
 import { MovieService } from '../services/movie.service';
 import { HttpModule } from '@angular/http';
@@ -41,7 +39,6 @@ import { NowplayingPage } from '../pages/nowplaying/nowplaying';
     StatusBar,
     SplashScreen,
     MovieService,
-    CallNumber,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

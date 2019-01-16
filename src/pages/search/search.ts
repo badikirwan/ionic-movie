@@ -4,6 +4,7 @@ import { MovieService } from '../../services/movie.service';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { Movie } from '../../classes/movie.class';
+import { DetailPage } from '../detail/detail';
 
 /**
  * Generated class for the SearchPage page.
@@ -22,7 +23,8 @@ export class SearchPage {
   movies: Movie[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public movieService: MovieService, private loadingCtrl: LoadingController, private alertCtrl: AlertController){
+    public movieService: MovieService, private loadingCtrl: LoadingController, 
+    private alertCtrl: AlertController){
   }
 
   ionViewDidLoad() {
@@ -30,9 +32,7 @@ export class SearchPage {
   }
 
   onInput(ev: any) {
-    console.log('ionViewDidLoad NowplayingPage');
     const val = ev.target.value;
-
     let loader = this.loadingCtrl.create({content: "Please wait..."});
     loader.present();
 
@@ -41,13 +41,18 @@ export class SearchPage {
         loader.dismiss();
         this.movies = output.results;
         console.log(output.results);
-      }, error =>{
+      }, error => {
         loader.dismiss();
         this.errorHandler(error);
       });
     } else {
+      this.movies = null;
       loader.dismiss();
     }
+  }
+
+  onGotoDetailMoviePage(movie) {
+    this.navCtrl.push(DetailPage, movie);
   }
 
   errorHandler(error){

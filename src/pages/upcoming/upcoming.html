@@ -6,32 +6,32 @@
 -->
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title text-center>Movie App</ion-title>
+    <ion-title>Movie App</ion-title>
+    <ion-buttons end>
+        <button ion-button (click)="onGotoSearchMoviePage()">
+            <ion-icon name="search" style="font-size: 25px;"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
   <ion-list>
-    <ion-item-sliding *ngFor="let contact of contacts">
-      <ion-item>
+    <ion-item-sliding *ngFor="let movie of movies">
+      <ion-item (click)="onGotoDetailMoviePage(movie)"> 
       <ion-thumbnail item-start>
-        <img src= "https://image.tmdb.org/t/p/w185/{{contact.poster_path}}" >
+        <img src= "https://image.tmdb.org/t/p/w185/{{movie.poster_path}}" >
       </ion-thumbnail>
-      <h2>{{contact.title}}</h2>
-      <p>{{contact.overview}}</p>
+      <h2>{{movie.title}}</h2>
+      <p>{{movie.overview}}</p>
     </ion-item>
     <ion-item-options side="right">
-        <button ion-button color="primary" (click)="onGotoDetailContactPage(contact)">
+        <button ion-button color="primary" (click)="onGotoDetailMoviePage(movie)">
           <ion-icon name="list-box"></ion-icon>
           Detail
         </button>
     </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-  <ion-fab bottom right>
-      <button ion-fab (click)="onGotoSearchContactPage()">
-          <ion-icon name="search"></ion-icon>
-      </button>
-  </ion-fab>
 </ion-content>

@@ -36,7 +36,7 @@ export class NowplayingPage {
       loader.dismiss();
       this.movies = output.results;
       console.log(output.results);
-    }, error=>{
+    }, error => {
       loader.dismiss();
       this.errorHandler(error);
     });
@@ -46,8 +46,8 @@ export class NowplayingPage {
     this.navCtrl.push(SearchPage);
   }
 
-  onGotoDetailMoviePage(movie) {
-    this.navCtrl.push(DetailPage, movie);
+  onGotoDetailMoviePage(movies) {
+    this.navCtrl.push(DetailPage, movies);
   }
 
   errorHandler(error){

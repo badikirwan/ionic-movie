@@ -5,27 +5,24 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar color="primary">
-        <ion-title> Search movie</ion-title>
-      </ion-navbar>
   <ion-toolbar color="primary">
-    <ion-searchbar (ngModel)="contacts" (ionInput)="onInput($event)"></ion-searchbar>
+    <ion-searchbar (ngModel)="movies" (ionInput)="onInput($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content padding>
   <ion-list>
-    <ion-item-sliding *ngFor="let contact of contacts">
-      <ion-item>
+    <ion-item-sliding *ngFor="let movie of movies">
+      <ion-item (click)="onGotoDetailMoviePage(movie)">
         <ion-thumbnail item-start>
-          <img src= "https://image.tmdb.org/t/p/w185/{{contact.poster_path}}" >
+          <img src= "https://image.tmdb.org/t/p/w185/{{movie.poster_path}}" >
         </ion-thumbnail>
-          <h2>{{contact.title}}</h2>
-          <p>{{contact.overview}}</p>
+          <h2>{{movie.title}}</h2>
+          <p>{{movie.overview}}</p>
       </ion-item>
         <ion-item-options side="right">
-          <button ion-button color="primary" (click)="onGotoDetailContactPage(contact)">
+          <button ion-button color="primary" (click)="onGotoDetailMoviePage(movie)">
             <ion-icon name="list-box"></ion-icon>Detail</button>
         </ion-item-options>
     </ion-item-sliding>

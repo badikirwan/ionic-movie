@@ -4,6 +4,7 @@ import { MovieService } from '../../services/movie.service';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { Movie } from '../../classes/movie.class';
+import { SearchPage } from '../search/search';
 import { DetailPage } from '../detail/detail';
 
 /**
@@ -41,8 +42,12 @@ export class UpcomingPage {
     });
   }
 
-  onGotoDetailContactPage(contact) {
-    this.navCtrl.push(DetailPage, contact);
+  onGotoSearchMoviePage(){
+    this.navCtrl.push(SearchPage);
+  }
+
+  onGotoDetailMoviePage(movies) {
+    this.navCtrl.push(DetailPage, movies);
   }
 
   errorHandler(error) {

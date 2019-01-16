@@ -1,37 +1,17 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>
-      Detail Contact
-    </ion-title>
-    <ion-buttons right>
-      <button ion-button (click)="confirmRemove()"> 
-        <ion-icon name="trash" style="font-size: 25px;"></ion-icon>
-      </button>
-    </ion-buttons>
+      <ion-title *ngIf="movie">{{movie.title}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-row>
-    <ion-col text-center>
-      <img src="https://image.tmdb.org/t/p/w185/{{contact.poster_path}}">
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col text-center>
-      <h3>{{contact?.full_name}}</h3>
-    </ion-col>
-  </ion-row>
-  <ion-item>
-    <ion-icon name="home" item-start></ion-icon>
-    {{contact?.address}}
-  </ion-item>
-  <ion-item>
-    <ion-icon name="call" item-start></ion-icon>
-    {{contact?.phone}}
-  </ion-item>
-  <ion-item>
-    <ion-icon name="mail" item-start></ion-icon>
-    {{contact?.email}}
-  </ion-item>
+    <ion-card *ngIf="movie">
+        <img src="https://image.tmdb.org/t/p/w185/{{movie.poster_path}}" />
+        <ion-card-header>
+          <h2>Synopsis
+            <ion-badge color="primary">{{movie.vote_average}}</ion-badge>
+          </h2>
+        </ion-card-header>
+        <ion-card-content>{{movie.overview}}</ion-card-content>
+      </ion-card>
 </ion-content>

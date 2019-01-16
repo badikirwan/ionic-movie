@@ -6,7 +6,12 @@
 -->
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title text-center>Movie App</ion-title>
+    <ion-title>Movie App</ion-title>
+    <ion-buttons end>
+        <button ion-button (click)="onGotoSearchMoviePage()">
+            <ion-icon name="search" style="font-size: 25px;"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -14,7 +19,7 @@
 <ion-content padding>
     <ion-list>
         <ion-item-sliding *ngFor="let movie of movies">
-          <ion-item>
+          <ion-item (click)="onGotoDetailMoviePage(movie)">
           <ion-thumbnail item-start>
             <img src= "https://image.tmdb.org/t/p/w185/{{movie.poster_path}}" >
           </ion-thumbnail>
@@ -29,9 +34,4 @@
         </ion-item-options>
         </ion-item-sliding>
       </ion-list>
-    <ion-fab bottom right>
-      <button ion-fab (click)="onGotoSearchMoviePage()">
-          <ion-icon name="search"></ion-icon>
-      </button>
-    </ion-fab>
 </ion-content>
